@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Huỳnh Trần Trọng Hiếu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <h2 class="logo">HIEU<span>.</span></h2>
+
+            <ul class="nav-links">
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#about">Giới thiệu</a></li>
+                <li><a href="#skills">Kỹ năng</a></li>
+                <li><a href="#projects">Dự án</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+
+            <button id="themeBtn">🌙</button>
+        </nav>
+    </header>
+
+
+    <!-- HOME -->
+    <section id="home" class="hero">
+
+        <div class="hero-text">
+            <p class="hello">XIN CHÀO 👋</p>
+
+            <h1>
+                Tôi là <span>Huỳnh Trần Trọng Hiếu</span>
+            </h1>
+
+            <h2>Sinh viên Công nghệ thông tin</h2>
+
+            <p>
+                Tôi là một sinh viên yêu thích công nghệ, lập trình
+                và phát triển các sản phẩm web hiện đại.
+            </p>
+
+            <div class="buttons">
+                <a href="#contact" class="btn">Liên hệ với tôi</a>
+                <a href="#projects" class="btn outline">Xem dự án</a>
+            </div>
+        </div>
+
+        <div class="hero-card">
+            <div class="avatar">
+                H
+            </div>
+            <h3>Huỳnh Trần Trọng Hiếu</h3>
+            <p>Computer Engineering Student</p>
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+
+        <h2 class="section-title">Về tôi</h2>
+
+        <div class="about">
+
+            <div>
+                <h3>Xin chào, mình là Hiếu!</h3>
+
+                <p>
+                    Mình hiện đang là sinh viên ngành Công nghệ thông tin.
+                    Mình có niềm đam mê với lập trình, phần cứng máy tính
+                    và phát triển các hệ thống phần mềm.
+                </p>
+
+                <p>
+                    Mục tiêu của mình là không ngừng học hỏi những công nghệ
+                    mới và xây dựng những sản phẩm có tính thực tế.
+                </p>
+            </div>
+
+            <div class="info-box">
+                <p><strong>🎓 Ngành:</strong> Kỹ thuật máy tính</p>
+                <p><strong>💻 Sở thích:</strong> Lập trình & Công nghệ</p>
+                <p><strong>🚀 Mục tiêu:</strong> Full Stack Developer</p>
+                <p><strong>📍 Quốc gia:</strong> Việt Nam</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills" class="section gray">
+
+        <h2 class="section-title">Kỹ năng</h2>
+
+        <div class="skills">
+
+            <div class="skill">
+                <span>HTML / CSS</span>
+                <div class="progress">
+                    <div style="width: 90%"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <span>JavaScript</span>
+                <div class="progress">
+                    <div style="width: 75%"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <span>Flutter</span>
+                <div class="progress">
+                    <div style="width: 70%"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <span>Node.js</span>
+                <div class="progress">
+                    <div style="width: 65%"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+
+        <h2 class="section-title">Dự án của tôi</h2>
+
+        <div class="projects">
+
+            <div class="project-card">
+                <div class="project-icon">☕</div>
+                <h3>Quản lý quán cà phê</h3>
+                <p>
+                    Website hỗ trợ quản lý sản phẩm, đơn hàng
+                    và hoạt động của quán cà phê.
+                </p>
+                <span>HTML • CSS • JavaScript</span>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">📱</div>
+                <h3>Ứng dụng Flutter</h3>
+                <p>
+                    Ứng dụng quản lý danh bạ sử dụng Flutter
+                    và kết nối API.
+                </p>
+                <span>Flutter • Dart • API</span>
+            </div>
+
+            <div class="project-card">
+                <div class="project-icon">🏠</div>
+                <h3>Smart Home</h3>
+                <p>
+                    Hệ thống nhà thông minh sử dụng ESP32
+                    và các cảm biến.
+                </p>
+                <span>ESP32 • IoT • Sensors</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="section gray">
+
+        <h2 class="section-title">Liên hệ với tôi</h2>
+
+        <p class="contact-description">
+            Nếu bạn muốn liên hệ hoặc trao đổi về một dự án,
+            hãy gửi tin nhắn cho tôi.
+        </p>
+
+        <form id="contactForm">
+
+            <div class="form-group">
+                <label>Họ và tên</label>
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Nhập họ và tên..."
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label>Gmail</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="example@gmail.com"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label>Nội dung</label>
+                <textarea
+                    id="message"
+                    rows="6"
+                    placeholder="Nhập nội dung..."
+                    required></textarea>
+            </div>
+
+            <button type="submit" class="send-btn">
+                Gửi tin nhắn 🚀
+            </button>
+
+        </form>
+
+        <div id="result"></div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <h3>HIEU<span>.</span></h3>
+        <p>© 2026 Huỳnh Trần Trọng Hiếu. All rights reserved.</p>
+
+        <div class="social">
+            <a href="#">Facebook</a>
+            <a href="#">GitHub</a>
+            <a href="mailto:yourgmail@gmail.com">Gmail</a>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
