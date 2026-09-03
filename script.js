@@ -29,51 +29,51 @@ form.addEventListener("submit", async function (event) {
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
 
-    // Kiểm tra dữ liệu
     if (!name || !email || !message) {
         result.textContent = "Vui lòng nhập đầy đủ thông tin!";
         return;
     }
 
     // Kiểm tra Gmail
-    if (!email.includes("@gmail.com")) {
+    if (!email.toLowerCase().endsWith("@gmail.com")) {
         result.textContent = "Vui lòng nhập đúng địa chỉ Gmail!";
         return;
     }
 
-    // Hiển thị trạng thái
     result.textContent = "Đang gửi tin nhắn...";
 
     try {
-        // Lưu dữ liệu vào Supabase
         const { data, error } = await supabaseClient
             .from("contacts")
-            .insert([
-                {
-                    name: name,
-                    email: email,
-                    message: message
-                }
-            ]);
+            .insert({
+                name: name,
+                email: email,
+                message: message
+            })
+            .select();
 
         if (error) {
             console.error("Supabase error:", error);
 
             result.textContent =
-                "Lỗi: " + error.message +
-                " | Code: " + error.code;
+                "Lỗi Supabase: " +
+                error.message +
+                " | Code: " +
+                error.code;
+
             return;
         }
 
-        // Thành công
+        console.log("Dữ liệu đã lưu:", data);
+
         result.textContent =
             "Cảm ơn " + name + "! Tin nhắn đã được gửi thành công 🚀";
 
-        // Xóa form
         form.reset();
 
     } catch (error) {
-        console.error("Error:", error);
+        console.error("JavaScript error:", error);
+
         result.textContent =
             "Có lỗi xảy ra. Vui lòng thử lại!";
     }
