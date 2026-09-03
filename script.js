@@ -58,7 +58,10 @@ form.addEventListener("submit", async function (event) {
 
         if (error) {
             console.error("Supabase error:", error);
-            result.textContent = "Gửi thất bại: " + error.message;
+
+            result.textContent =
+                "Lỗi: " + error.message +
+                " | Code: " + error.code;
             return;
         }
 
