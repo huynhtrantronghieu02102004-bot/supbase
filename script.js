@@ -19,7 +19,7 @@ themeBtn.addEventListener("click", function () {
 // CONTACT FORM
 // ==========================
 
-const form = document.getElementById("contactForm");
+const form = document.getElementById("contacts");
 const result = document.getElementById("result");
 
 form.addEventListener("submit", async function (event) {
