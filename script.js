@@ -5,7 +5,6 @@
 const themeBtn = document.getElementById("themeBtn");
 
 themeBtn.addEventListener("click", function () {
-
     document.body.classList.toggle("dark");
 
     if (document.body.classList.contains("dark")) {
@@ -13,7 +12,6 @@ themeBtn.addEventListener("click", function () {
     } else {
         themeBtn.textContent = "🌙";
     }
-
 });
 
 
@@ -24,22 +22,56 @@ themeBtn.addEventListener("click", function () {
 const form = document.getElementById("contactForm");
 const result = document.getElementById("result");
 
-form.addEventListener("submit", function (event) {
-
+form.addEventListener("submit", async function (event) {
     event.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-    if (name === "" || email === "" || message === "") {
+    // Kiểm tra dữ liệu
+    if (!name || !email || !message) {
         result.textContent = "Vui lòng nhập đầy đủ thông tin!";
         return;
     }
 
-    result.textContent =
-        "Cảm ơn " + name + "! Tin nhắn của bạn đã được ghi nhận. 🚀";
+    // Kiểm tra Gmail
+    if (!email.includes("@gmail.com")) {
+        result.textContent = "Vui lòng nhập đúng địa chỉ Gmail!";
+        return;
+    }
 
-    form.reset();
+    // Hiển thị trạng thái
+    result.textContent = "Đang gửi tin nhắn...";
 
+    try {
+        // Lưu dữ liệu vào Supabase
+        const { data, error } = await supabaseClient
+            .from("contacts")
+            .insert([
+                {
+                    name: name,
+                    email: email,
+                    message: message
+                }
+            ]);
+
+        if (error) {
+            console.error("Supabase error:", error);
+            result.textContent = "Gửi thất bại: " + error.message;
+            return;
+        }
+
+        // Thành công
+        result.textContent =
+            "Cảm ơn " + name + "! Tin nhắn đã được gửi thành công 🚀";
+
+        // Xóa form
+        form.reset();
+
+    } catch (error) {
+        console.error("Error:", error);
+        result.textContent =
+            "Có lỗi xảy ra. Vui lòng thử lại!";
+    }
 });
