@@ -239,6 +239,18 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        const SUPABASE_URL = "https://rhumooetgbfgnznmmrru.supabase.co";
+        const SUPABASE_ANON_KEY = "sb_publishable_0AbFiuEXXbbtLiGGl5BHKg__wYbq5yR";
+
+        // Tạo instance duy nhất với tên supabaseClient để tránh trùng lặp
+        const supabaseClient = window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_ANON_KEY
+        );
+    </script>
 
     <script src="script.js"></script>
 
